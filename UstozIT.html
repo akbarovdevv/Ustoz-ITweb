@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ustoz IT Web App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    body {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),#000 url('https://media.istockphoto.com/id/865457032/vector/abstract-futuristic-cyberspace-with-binary-code-matrix-background-with-digits-well-organized.jpg?s=612x612&w=0&k=20&c=IQcdedY8fn_DMq6nwc5MaHUBe0H0d5DPyibHR8J2usk=') center/cover no-repeat fixed;
+  color: #00ffcc;
+  min-height: 100vh;
+  padding: 20px;
+  position: relative;
+  animation: fadeIn 1.5s ease-in;
+}
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .title {
+  text-align: center;
+  font-size: 28px;
+  margin: 60px 0 20px; /* Tepaga joy qoshildi */
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc;
+}
+
+  .courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+  }
+
+
+    .card {
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid #00ffcc33;
+      border-radius: 12px;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 0 10px #00ffcc44;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 20px #00ffcc;
+    }
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #00ffcc;
+    }
+    .card p {
+      font-size: 14px;
+      color: #c0fdfd;
+    }
+    .brand {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* logoning va matn orasidagi masofa */
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background: rgba(0, 255, 200, 0.15);
+  padding: 6px 12px;
+  border: 1px solid #00ffcc55;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #00ffcc;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 0 8px #00ffcc88;
+}
+
+.brand-logo {
+  width: 40px;/* kerak bo‘lsa o‘zgartiring */
+  height: 40px;/*logo balandligini o‘rnatish */
+  object-fit: contain;
+}
+
+  </style>
+</head>
+<body>
+    <div class="brand">
+        <img src="logo.png" alt="Brend Logosi" class="brand-logo" />
+        Ustoz IT
+    </div>
+
+  <h1 class="title">📚 Kurslar ro'yxati:</h1>
+  <div class="courses">
+    <div class="card">
+      <h3><i class="fas fa-shield-alt"></i> Kiberxavfsizlik</h3>
+      <p>Axborot xavfsizligi asoslari, himoya metodlari va tahlil vositalari.</p>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-code"></i> Frontend</h3>
+      <p>HTML , CSS , JavaScript , React Js , TypeScript orqali web dasturlashni o'rganing.</p>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-server"></i> Backend</h3>
+      <p>Python , Python(Django) , Golang , Java bilan backend ni mukammal o'rganing.</p>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-database"></i> DataBase </h3>
+      <p>Ma'lumotlar Bazasi: MySQL , PostgreSQL va MongoDB.</p>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-mobile-alt"></i> Mobil Dasturlash</h3>
+      <p>Flutter yordamida Android va iOS ilovalar yaratishni o'rganing.</p>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-code-branch"></i> Git & GitHub</h3>
+      <p>Versiya nazorati va jamoaviy ishlash usullari.</p>
+    </div>
+    <div class="card">
+      <h3><i class="fas fa-paint-brush"></i> Photoshop</h3>
+      <p>Dizayn va kreativlikni rivojlantiring! Rasmlar, bannerlar va postlar yaratishni o‘rganing!</p>
+    </div>
+    <div class="card">
+      <h3><i class="fab fa-telegram-plane"></i> Telegram bot</h3>
+      <p>O‘zingizning funksional Telegram botlaringizni yozishni o‘rganing!.</p>
+    </div>
+  </div>
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
+  </script>
+</body>
+</html>
