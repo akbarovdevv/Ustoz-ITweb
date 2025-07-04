@@ -14,33 +14,29 @@
       font-family: 'Courier New', Courier, monospace;
     }
     body {
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),#000 url('https://media.istockphoto.com/id/865457032/vector/abstract-futuristic-cyberspace-with-binary-code-matrix-background-with-digits-well-organized.jpg?s=612x612&w=0&k=20&c=IQcdedY8fn_DMq6nwc5MaHUBe0H0d5DPyibHR8J2usk=') center/cover no-repeat fixed;
-  color: #00ffcc;
-  min-height: 100vh;
-  padding: 20px;
-  position: relative;
-  animation: fadeIn 1.5s ease-in;
-}
-
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), #000 url('https://media.istockphoto.com/id/865457032/vector/abstract-futuristic-cyberspace-with-binary-code-matrix-background-with-digits-well-organized.jpg?s=612x612&w=0&k=20&c=IQcdedY8fn_DMq6nwc5MaHUBe0H0d5DPyibHR8J2usk=') center/cover no-repeat fixed;
+      color: #00ffcc;
+      min-height: 100vh;
+      padding: 20px;
+      position: relative;
+      animation: fadeIn 1.5s ease-in;
+    }
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .title {
-  text-align: center;
-  font-size: clamp(18px, 5vw, 28px);
-  margin: 60px 0 20px; /* Tepaga joy qoshildi */
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc;
-}
-
-  .courses {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 15px;
-  }
-
-
+      text-align: center;
+      font-size: clamp(18px, 5vw, 28px);
+      margin: 60px 0 20px;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+    .courses {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 15px;
+    }
     .card {
       background: rgba(0, 0, 0, 0.8);
       border: 1px solid #00ffcc33;
@@ -64,39 +60,69 @@
       color: #c0fdfd;
     }
     .brand {
-  display: flex;
-  align-items: center;
-  gap: 8px; /* logoning va matn orasidagi masofa */
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  background: rgba(0, 255, 200, 0.15);
-  padding: 6px 12px;
-  border: 1px solid #00ffcc55;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 16px;
-  color: #00ffcc;
-  backdrop-filter: blur(5px);
-  box-shadow: 0 0 8px #00ffcc88;
-}
-
-.brand-logo {
-  width: 40px;/* kerak bo‘lsa o‘zgartiring */
-  height: 40px;/*logo balandligini o‘rnatish */
-  object-fit: contain;
-}
-
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background: rgba(0, 255, 200, 0.15);
+      padding: 6px 12px;
+      border: 1px solid #00ffcc55;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #00ffcc;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 0 8px #00ffcc88;
+    }
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+    .ai-box {
+      max-width: 600px;
+      margin: 40px auto 20px;
+      text-align: center;
+    }
+    .ai-box input {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #00ffcc;
+      background: rgba(0, 0, 0, 0.4);
+      color: #00ffcc;
+      margin-bottom: 10px;
+    }
+    .ai-box button {
+      padding: 10px 20px;
+      background: #00ffcc;
+      border: none;
+      color: black;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .ai-box .response {
+      margin-top: 15px;
+      color: #c0fdfd;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 10px;
+      border-radius: 6px;
+    }
   </style>
 </head>
 <body>
-    <div class="brand">
-        <img src="logo.png" alt="Brend Logosi" class="brand-logo" />
-        Ustoz IT
-    </div>
+  <div class="brand">
+    <img src="logo.png" alt="Brend Logosi" class="brand-logo" />
+    Ustoz IT
+  </div>
 
   <h1 class="title">📚 Kurslar ro'yxati:</h1>
   <div class="courses">
+    <!-- kartochkalar qoldirilgan -->
     <div class="card">
       <h3><i class="fas fa-shield-alt"></i> Kiberxavfsizlik</h3>
       <p>Axborot xavfsizligi asoslari, himoya metodlari va tahlil vositalari.</p>
@@ -130,9 +156,46 @@
       <p>O‘zingizning funksional Telegram botlaringizni yozishni o‘rganing!.</p>
     </div>
   </div>
+
+  <!-- AI Qism -->
+  <div class="ai-box">
+    <input id="question" type="text" placeholder="Kurs haqida savolingizni yozing...">
+    <br>
+    <button onclick="askAI()">🤖 Javobni olish</button>
+    <div class="response" id="ai-response"></div>
+  </div>
+
   <script>
     const tg = window.Telegram.WebApp;
     tg.expand();
+
+    async function askAI() {
+      const input = document.getElementById('question');
+      const responseBox = document.getElementById('ai-response');
+      const message = input.value.trim();
+
+      if (!message) {
+        responseBox.innerText = "❗️ Savol matni bo‘sh bo‘lmasligi kerak.";
+        return;
+      }
+
+      responseBox.innerText = "⏳ Javob yozilmoqda...";
+
+      try {
+        const res = await fetch("https://684001b38f3b3.goldxost.ru/chatgpt/chatgpt.php", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({ message })
+        });
+
+        const data = await res.json();
+        responseBox.innerText = data.reply || "⚠️ Javob olinmadi.";
+      } catch (err) {
+        responseBox.innerText = "❌ Xatolik: " + err.message;
+      }
+    }
   </script>
 </body>
 </html>
